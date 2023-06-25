@@ -78,7 +78,6 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
 	HDC hdc = GetDC(window);
 
 	Input input = {};
-
 	float delta_time = 0.016666f;
 	LARGE_INTEGER frame_begin_time;
 	QueryPerformanceCounter(&frame_begin_time);

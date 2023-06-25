@@ -20,7 +20,7 @@ draw_rect_in_pixels(int x0, int y0, int x1, int y1, u32 color) {
 		u32* pixel = (u32*)render_state.memory + x0 + y * render_state.width;
 		for (int x = x0; x < x1; x++) {
 			if (color == 1)
-				*pixel++ = x>y ? (x-y)*1050:(y-x)*1050;
+				*pixel++ = RGB(217,178-85-x,214);
 			else
 				*pixel++ = color;
 		}

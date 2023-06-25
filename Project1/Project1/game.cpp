@@ -1,11 +1,10 @@
 #define is_down(b) input->buttons[b].is_down
 #define pressed(b) (input->buttons[b].is_down && input->buttons[b].changed)
 #define released(b) (!input->buttons[b].is_down && input->buttons[b].changed)
-
 float player_1_p, player_1_dp, player_2_p, player_2_dp;
 float arena_half_size_x = 85, arena_half_size_y = 45;
 float player_half_size_x = 2.5, player_half_size_y = 12;
-float ball_p_x, ball_p_y, ball_dp_x = 130, ball_dp_y, ball_half_size = 1;
+float ball_p_x, ball_p_y, ball_dp_x = 160, ball_dp_y, ball_half_size = 1;
 
 int player_1_score, player_2_score;
 
@@ -47,18 +46,18 @@ bool enemy_is_ai;
 
 internal void
 simulate_game(Input* input, float dt) {
-	draw_rect(0, 0, arena_half_size_x, arena_half_size_y, 0x33cccc);
-	draw_arena_borders(arena_half_size_x, arena_half_size_y, 1);
+	draw_rect(0, 0, arena_half_size_x, arena_half_size_y, 0x050708);
+	draw_arena_borders(arena_half_size_x, arena_half_size_y, 0xA0A2A5);
 
 	if (current_gamemode == GM_WINSTATUS)
 	{
 		if (player_1_score == 10)
 		{
-			draw_text("PLAYER I WINS ", -40, 0, 1, 0x0000e6);
+			draw_text("PLAYER I WINS ", -40, 5, 1, 0x1E81F0);
 		}
 		else
 		{
-			draw_text("PLAYER II WINS ", -40, 0, 1, 0x0000e6);
+			draw_text("PLAYER II WINS ", -40, 5, 1, 0x1E81F0);
 		}
 		if (pressed(BUTTON_ESC))
 		{
@@ -75,7 +74,7 @@ simulate_game(Input* input, float dt) {
 		else {
 			//if (ball_p_y > player_1_p+2.f) player_1_ddp += 1300;
 			//if (ball_p_y < player_1_p-2.f) player_1_ddp -= 1300;
-			player_1_ddp = (ball_p_y - player_1_p) * 100;
+			player_1_ddp = (ball_p_y - player_1_p) * 200;
 			if (player_1_ddp > 1300) player_1_ddp = 1300;
 			if (player_1_ddp < -1300) player_1_ddp = -1300;
 		}
@@ -129,14 +128,18 @@ simulate_game(Input* input, float dt) {
 			}
 		}
 
-		draw_number(player_1_score, -10, 40, 1.f, 0xbbffbb);
-		draw_number(player_2_score, 10, 40, 1.f, 0xbbffbb);
+		draw_number(player_1_score, -10, 40, 1.f, 0xE9EC20);
+		draw_number(player_2_score, 10, 40, 1.f, 0xE9EC20);
 
 		// Rendering
 		draw_rect(ball_p_x, ball_p_y, ball_half_size, ball_half_size, 0xffffff);
 
-		draw_rect(80, player_1_p, player_half_size_x, player_half_size_y, 0xff0000);
-		draw_rect(-80, player_2_p, player_half_size_x, player_half_size_y, 0xff0000);
+		draw_rect(-80, player_2_p, player_half_size_x, player_half_size_y, 0x0A0DFB);
+		
+		if(!enemy_is_ai)
+		draw_rect(80, player_1_p, player_half_size_x, player_half_size_y, 0x09DA06);
+		else
+		draw_rect(80, player_1_p, player_half_size_x, player_half_size_y, 0xFB0505);
 		if (player_1_score == 10 || player_2_score==10)
 		{
 			current_gamemode = GM_WINSTATUS;
@@ -165,15 +168,15 @@ simulate_game(Input* input, float dt) {
 		
 
 		if (hot_button == 0) {
-			draw_text("SINGLE PLAYER", -80, -10, 1, 0xcc0000);
-			draw_text("MULTIPLAYER", 20, -10, 1, 0xff6666);
+			draw_text("SINGLE PLAYER", -80, -10, 1, 0xF80C1B);
+			draw_text("MULTIPLAYER", 20, -10, 1, 0xFAB8BC);
 		}
 		else {
-			draw_text("SINGLE PLAYER", -80, -10, 1, 0xff6666);
-			draw_text("MULTIPLAYER", 20, -10, 1, 0xcc0000);
+			draw_text("SINGLE PLAYER", -80, -10, 1, 0xFAB8BC);
+			draw_text("MULTIPLAYER", 20, -10, 1, 0xF80C1B);
 		}
 
-		draw_text("PONG GAME", -50, 40, 2, 0xffffff);
+		draw_text("PONG GAME", -43, 40, 1.75, 0xD19E49);
 
 	}
 }
