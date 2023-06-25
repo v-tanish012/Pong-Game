@@ -13,7 +13,7 @@ Bounce Bash is a C++ Game Build From Scratch.
 ![](https://github.com/v-tanish012/Pong-Game/blob/master/Game/Screenshots/homescreen.png)
 
 ### Single Player ( With AI ) 
-![](https://github.com/v-tanish012/Pong-Game/blob/master/Game/Screenshots/singleplayer.png)
+![](https://github.com/v-tanish012/Pong-Game/blob/master/Game/Screenshots/single_player.png)
 
 ### Multi Player
 ![](https://github.com/v-tanish012/Pong-Game/blob/master/Game/Screenshots/multiplayer.png)
