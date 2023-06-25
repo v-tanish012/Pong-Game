@@ -1,9 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Project1",
-    "\\Project1\\Project1"
+    "\\Game",
+    "\\Game\\Project1"
   ],
-  "SelectedNode": "\\Project1\\Project1\\game.cpp",
+  "SelectedNode": "\\Game\\Project1\\win32_platform.cpp",
   "PreviewInSolutionExplorer": false
 }
